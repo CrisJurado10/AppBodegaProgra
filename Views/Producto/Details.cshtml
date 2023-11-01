@@ -1,0 +1,38 @@
+﻿@model Producto
+@{
+    ViewData["Title"] = "Detalle Productos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Nombre Producto</label>
+        <input asp-for="Nombre" class="form-control" placeholder="Ingrese Nuevo nombre del  Producto" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Descripción Producto</label>
+        <input asp-for="Descripcion" class="form-control" placeholder="Ingrese una nueva descripción Producto" disabled>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Precio Producto(Número Decimal)</label>
+        <input asp-for="Precio" class="form-control" placeholder="Ingrese Nuevo Precio Producto" disabled type="number" step="0.01" pattern="^\d+(\.\d{1,2})?$>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Cantidad en Stock</label>
+        <input asp-for="CtdenStock" class="form-control" placeholder="Ingrese Nueva Cantidad en stock Producto" disabled>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Proveedor ID(Id de la empresa)</label>
+        <input asp-for="ProveedorId" class="form-control" placeholder="Ingrese el nuevo ID del Proovedor para el Producto" disabled>
+    </div>
+
+    <div class="row col-6">
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-outline-dark">Regresar</a>
+        </div>
+
+    </div>
+</form>
+

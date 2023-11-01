@@ -1,0 +1,59 @@
+﻿@model Producto
+@{
+    ViewData["Title"] = "Editar Productos";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form method="post">
+    <div class="mb-3">
+        <label>Nombre Producto</label>
+        <input asp-for="Nombre" class="form-control" placeholder="Ingrese Nuevo nombre del Producto" required>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Descripción Producto</label>
+        <input asp-for="Descripcion" class="form-control" placeholder="Ingrese una nueva descripción del Producto" required>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Precio Producto(Número Decimal)</label>
+        <input asp-for="Precio" class="form-control" placeholder="Ingrese Nuevo Precio Producto" required type="number" step="0.01" min="0" pattern="^\d+(\.\d{1,2})?$">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Cantidad en Stock</label>
+        <input asp-for="CtdenStock" class="form-control" placeholder="Ingrese Nueva Cantidad en stock Producto" required>
+    </div>
+
+
+    <div class="row col-6">
+        <div class="col-6">
+            <button type="submit" class="btn btn-secondary" id="guardarBtn" disabled>Guardar</button>
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-outline-dark">Regresar</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    // Obtener referencias a los campos de entrada y al botón
+    const nombreInput = document.querySelector('input[name="Nombre"]');
+    const descripcionInput = document.querySelector('input[name="Descripcion"]');
+    const precioInput = document.querySelector('input[name="Precio"]');
+    const ctdenStockInput = document.querySelector('input[name="CtdenStock"]');
+    const guardarBtn = document.getElementById('guardarBtn');
+
+    // Función para habilitar/deshabilitar el botón "Guardar"
+    function validarCampos() {
+        const todosCamposLlenos = nombreInput.value && descripcionInput.value && precioInput.value && ctdenStockInput.value;
+        guardarBtn.disabled = !todosCamposLlenos;
+    }
+
+
+    nombreInput.addEventListener('input', validarCampos);
+    descripcionInput.addEventListener('input', validarCampos);
+    precioInput.addEventListener('input', validarCampos);
+    ctdenStockInput.addEventListener('input', validarCampos);
+   
+</script>

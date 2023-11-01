@@ -1,0 +1,43 @@
+﻿@model List<appBodega.Models.Producto>
+@{
+    ViewData["Title"] = "Productos de las Empresas";
+    
+}
+<h1>@ViewData["Title"]</h1>
+<button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Producto")'"> + Nuevo Producto</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad en Stock</th>
+            <th scope="col">Proveedor ID</th>
+            <th scope="col">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+    {
+        
+            <tr>
+                <th scope="row">@item.ProductoId</th>
+                <td>@item.Nombre</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Precio</td>
+                <td>@item.CtdenStock</td>
+                <td>@item.ProveedorId</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a asp-action="Delete" asp-route-ProductoId="@item.ProductoId" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                        <a asp-action="Edit" asp-route-ProductoId="@item.ProductoId" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                        <!--<a asp-action="Details" asp-route-ProductoId="@item.ProductoId" class="btn btn-success"><i class="bi bi-eye-fill"></i></a>-->
+                    </div>
+                </td>
+            </tr>
+            
+    }
+    </tbody>
+</table>

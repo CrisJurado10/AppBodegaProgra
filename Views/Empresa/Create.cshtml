@@ -1,0 +1,52 @@
+﻿@model Empresa
+@{
+    ViewData["Title"] = "Añadir Empresa";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+
+<div class="container">
+    <form method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="nombreEmpresa" class="form-label">Nombre de la Empresa</label>
+            <input asp-for="NombreEmpresa" class="form-control" id="nombreEmpresa" placeholder="Ingrese el nombre de la Empresa" required>
+            <div class="invalid-feedback">Este campo es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="descripcionEmpresa" class="form-label">Descripción de la Empresa</label>
+            <input asp-for="Resumen" class="form-control" id="descripcionEmpresa" placeholder="Ingrese una descripción de la empresa" required>
+            <div class="invalid-feedback">Este campo es obligatorio.</div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <button type="submit" id="guardarBtn" class="btn btn-primary btn-block" disabled>Guardar</button>
+            </div>
+            <div class="col-6">
+                <a asp-action="Index" class="btn btn-outline-secondary btn-block">Regresar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<p class="text-center mt-4">Esta es la vista para añadir una empresa.</p>
+
+<script>
+    // Obtener los elementos de los campos y el botón
+    const nombreEmpresaInput = document.getElementById("nombreEmpresa");
+    const descripcionEmpresaInput = document.getElementById("descripcionEmpresa");
+    const guardarBtn = document.getElementById("guardarBtn");
+
+    // Función para habilitar o deshabilitar el botón "Guardar"
+    function toggleGuardarButton() {
+        if (nombreEmpresaInput.value.trim() !== "" && descripcionEmpresaInput.value.trim() !== "") {
+            guardarBtn.removeAttribute("disabled");
+        } else {
+            guardarBtn.setAttribute("disabled", "disabled");
+        }
+    }
+
+    nombreEmpresaInput.addEventListener("input", toggleGuardarButton);
+    descripcionEmpresaInput.addEventListener("input", toggleGuardarButton);
+</script>

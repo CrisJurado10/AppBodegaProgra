@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Login/Iniciar Sesión";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">@ViewData["Title"]</h2>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" required>
+                        </div>
+                        <div class="text-center">
+                            <a asp-controller="User" asp-action="Details" class="btn btn-outline-secondary btn-block" disabled>Submit</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    const emailInput = document.getElementById("exampleInputEmail1");
+    const passwordInput = document.getElementById("exampleInputPassword1");
+    const submitButton = document.getElementById("submitButton");
+
+    emailInput.addEventListener("input", validateForm);
+    passwordInput.addEventListener("input", validateForm);
+
+    // Funcion para habilitar o deshabilitar el botón en función del contenido de los campos.
+    function validateForm() {
+        if (emailInput.value.length > 0 && passwordInput.value.length > 0) {
+            submitButton.removeAttribute("disabled");
+        } else {
+            submitButton.setAttribute("disabled", "disabled");
+        }
+    }
+</script>

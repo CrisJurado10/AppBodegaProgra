@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appBodega", "appBodega.csproj", "{CE446FEB-7DD9-4A1C-A1A9-9F69696FF10C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE446FEB-7DD9-4A1C-A1A9-9F69696FF10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE446FEB-7DD9-4A1C-A1A9-9F69696FF10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE446FEB-7DD9-4A1C-A1A9-9F69696FF10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE446FEB-7DD9-4A1C-A1A9-9F69696FF10C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D036D36E-62F3-4B20-85DB-D104B4C1F72A}
+	EndGlobalSection
+EndGlobal
